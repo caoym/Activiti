@@ -212,6 +212,7 @@ import org.activiti.engine.impl.variable.JPAEntityListVariableType;
 import org.activiti.engine.impl.variable.JPAEntityVariableType;
 import org.activiti.engine.impl.variable.JsonType;
 import org.activiti.engine.impl.variable.LongJsonType;
+import org.activiti.engine.impl.variable.JsonableType;
 import org.activiti.engine.impl.variable.LongStringType;
 import org.activiti.engine.impl.variable.LongType;
 import org.activiti.engine.impl.variable.NullType;
@@ -1503,6 +1504,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
       variableTypes.addType(new UUIDType());
       variableTypes.addType(new JsonType(getMaxLengthString(), objectMapper));
       variableTypes.addType(new LongJsonType(getMaxLengthString() + 1, objectMapper));
+      variableTypes.addType(new JsonableType());
       variableTypes.addType(new ByteArrayType());
       variableTypes.addType(new SerializableType());
       variableTypes.addType(new CustomObjectType("item", ItemInstance.class));

@@ -11,7 +11,7 @@
     parameterType="org.activiti.engine.impl.persistence.entity.VariableInstanceEntity">
     insert into ${prefix}ACT_RU_VARIABLE (ID_, REV_,
     TYPE_, NAME_, PROC_INST_ID_, EXECUTION_ID_, TASK_ID_, BYTEARRAY_ID_,
-    DOUBLE_, LONG_ , TEXT_, TEXT2_)
+    DOUBLE_, LONG_ , TEXT_, TEXT2_, JSONB_)
     values (
     #{id, jdbcType=VARCHAR},
     1,
@@ -24,7 +24,8 @@
     #{doubleValue, jdbcType=DOUBLE},
     #{longValue, jdbcType=BIGINT},
     #{textValue, jdbcType=VARCHAR},
-    #{textValue2, jdbcType=VARCHAR}
+    #{textValue2, jdbcType=VARCHAR},
+    #{jsonableValue, typeHandler=MapTypeHandler}
     )
   </insert>
 
@@ -84,7 +85,8 @@
     DOUBLE_ = #{doubleValue, jdbcType=DOUBLE},
     LONG_ = #{longValue, jdbcType=BIGINT},
     TEXT_ = #{textValue, jdbcType=VARCHAR},
-    TEXT2_ = #{textValue2, jdbcType=VARCHAR}
+    TEXT2_ = #{textValue2, jdbcType=VARCHAR},
+    JSONB_ = #{jsonableValue, typeHandler=MapTypeHandler}
     where ID_ = #{id, jdbcType=VARCHAR}
     and REV_ = #{revision, jdbcType=INTEGER}
   </update>
@@ -122,6 +124,7 @@
     <result property="textValue" column="TEXT_" jdbcType="VARCHAR" />
     <result property="textValue2" column="TEXT2_" jdbcType="VARCHAR" />
     <result property="longValue" column="LONG_" jdbcType="BIGINT" />
+    <result property="jsonableValue" column="JSONB_" typeHandler="MapTypeHandler" />
   </resultMap>
 
   <!-- VARIABLE INSTANCE SELECT -->

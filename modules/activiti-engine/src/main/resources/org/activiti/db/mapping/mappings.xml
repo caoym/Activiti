@@ -8,10 +8,14 @@
   </settings>
   <typeAliases>
     <typeAlias type="org.activiti.engine.impl.persistence.ByteArrayRefTypeHandler" alias="ByteArrayRefTypeHandler"/>
+    <typeAlias type="org.activiti.engine.impl.persistence.MapTypeHandler" alias="MapTypeHandler"/>
   </typeAliases>
   <typeHandlers>
     <typeHandler handler="ByteArrayRefTypeHandler" 
                  javaType="org.activiti.engine.impl.persistence.entity.ByteArrayRef"
+                 jdbcType="VARCHAR"/>
+     <typeHandler handler="MapTypeHandler" 
+                 javaType="java.util.Map"
                  jdbcType="VARCHAR"/>
   </typeHandlers>
   <mappers>

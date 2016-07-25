@@ -116,4 +116,6 @@ public interface ValueFields {
   Object getCachedValue();
   void setCachedValue(Object cachedValue);
 
+  Object getJsonable();
+  void setJsonable(Object json);
 }

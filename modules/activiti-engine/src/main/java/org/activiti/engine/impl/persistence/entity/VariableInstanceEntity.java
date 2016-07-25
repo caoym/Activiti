@@ -49,6 +49,7 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
   protected final ByteArrayRef byteArrayRef = new ByteArrayRef();
 
   protected Object cachedValue;
+  protected Object jsonableValue;
   protected boolean forcedUpdate;
   protected boolean deleted = false;
   
@@ -164,7 +165,15 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
   public void setByteArrayValue(byte[] bytes) {
     setBytes(bytes);
   }
+  @Override
+  public Object getJsonable() {
+  	return this.jsonableValue;
+  }
 
+  @Override
+  public void setJsonable(Object json) {
+  	this.jsonableValue =  json;
+  }
   // value ////////////////////////////////////////////////////////////////////
 
   public Object getValue() {

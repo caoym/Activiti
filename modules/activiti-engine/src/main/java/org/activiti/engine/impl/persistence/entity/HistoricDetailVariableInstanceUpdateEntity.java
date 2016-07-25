@@ -40,7 +40,7 @@ public class HistoricDetailVariableInstanceUpdateEntity extends HistoricDetailEn
   protected final ByteArrayRef byteArrayRef = new ByteArrayRef();
 
   protected Object cachedValue;
-
+  protected Object jsonableValue;
   protected HistoricDetailVariableInstanceUpdateEntity() {
     this.detailType = "VariableUpdate";
   }
@@ -209,5 +209,15 @@ public class HistoricDetailVariableInstanceUpdateEntity extends HistoricDetailEn
     sb.append("]");
     return sb.toString();
   }
+
+@Override
+public Object getJsonable() {
+	return this.jsonableValue;
+}
+
+@Override
+public void setJsonable(Object json) {
+	this.jsonableValue =  json;
+}
   
 }
