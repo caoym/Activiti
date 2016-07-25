@@ -52,7 +52,7 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
   protected String textValue;
   protected String textValue2;
   protected final ByteArrayRef byteArrayRef = new ByteArrayRef();
-
+  protected Object jsonableValue;
   protected Object cachedValue;
 
   // Default constructor for SQL mapping
@@ -279,7 +279,15 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
   public Date getTime() {
     return getCreateTime();
   }
+  @Override
+  public Object getJsonable() {
+  	return this.jsonableValue;
+  }
 
+  @Override
+  public void setJsonable(Object json) {
+  	this.jsonableValue =  json;
+  }
   // common methods  //////////////////////////////////////////////////////////
 
   @Override
